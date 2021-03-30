@@ -1,0 +1,27 @@
+﻿<!-- Strona Główna -->
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Strona przeznaczona dla pracowników hotelu</h1>
+    <hr />
+    <p>Tutaj możesz wykonywać różnie operacje na pokojach oraz rezerwacjach. Do wglądu są podstawowe informacje o klientach.</p>
+    <hr />
+    <p> Przejdź do:</p>
+    <ul>
+        <li>
+            @Html.ActionLink("Pokoje", "Index", "Rooms")
+        </li>
+        <li>
+            @Html.ActionLink("Typy pokojów", "Index", "RoomTypes")
+        </li>
+        <li>
+            @Html.ActionLink("Rezerwacje", "Index", "Reservations")
+        </li>
+        <li>
+            @Html.ActionLink("Klienci", "Index", "Customers")
+        </li>
+    </ul>
+</div>

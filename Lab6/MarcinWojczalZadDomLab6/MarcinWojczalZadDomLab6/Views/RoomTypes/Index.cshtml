@@ -1,0 +1,47 @@
+﻿<!--Widok strony głównej typów pokoi-->
+@model IEnumerable<MarcinWojczalZadDomLab6.Models.Entities.RoomType>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!--Główny nagłówek-->
+<h1>Typy pokoi</h1>
+
+<!--Odnośnik do widoku dodawania typu pokoju-->
+<p>
+    <a asp-action="Create">Dodaj nowy typ</a>
+</p>
+
+<!--Tabelka z typami pokoi i ich podstawowymi danymi-->
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <!--Odnośniki do widoków edytowania, szczegółów oraz usuwania typu pokoju-->
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

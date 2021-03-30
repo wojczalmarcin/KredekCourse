@@ -1,0 +1,59 @@
+﻿<!--Widok szczegółów pokoju-->
+
+@model MarcinWojczalZadDomLab6.Models.Entities.Room
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!--Główny nagłówek-->
+<h1>Szczegóły</h1>
+
+<!--Kontener z danymi pokoju-->
+<div>
+    <h4>Pokój</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Number)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RoomType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RoomType.Type)
+        </dd>
+        <dt class="col-sm-2">
+            Opis
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RoomType.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Size)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Balcony)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Balcony)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+    </dl>
+</div>
+<!--Kontener z odnośnikami do edycji oraz strony głównej pokoi-->
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Number">Edytuj</a> |
+    <a asp-action="Index">Wróć do listy pokoi</a>
+</div>

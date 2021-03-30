@@ -1,0 +1,48 @@
+﻿<!-- Strona główna widoku klienta-->
+
+@model IEnumerable<MarcinWojczalZadDomLab6.ViewModels.CustomerViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Główny nagłówek-->
+<h1>Klienci</h1>
+
+<!--Tabela z danymi klienta-->
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EMail)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EMail)
+                </td>
+                <td>
+                    <!--Odnośnik do widoku szczegółów klienta-->
+                    <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,65 @@
+﻿<!--Widok strony głównej pokoi-->
+@model IEnumerable<MarcinWojczalZadDomLab6.ViewModels.RoomViewModel>
+
+@{
+    ViewData["Title"] = "Rooms";
+}
+
+<!--Główny nagłówek-->
+<h1>Pokoje</h1>
+
+<!--Odnośnik do widoku dodawania pokoju-->
+<p>
+    <a asp-action="Create">Dodaj pokój</a>
+</p>
+<!--Tabelka z pokojami i ich podstawowymi danymi-->
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NumberSortParm"]">@Html.DisplayNameFor(model => model.Number)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["TypeSortParm"]">@Html.DisplayNameFor(model => model.RoomType)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["SizeSortParm"]">@Html.DisplayNameFor(model => model.Size)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["BalconySortParm"]">@Html.DisplayNameFor(model => model.Balcony)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["PriceSortParm"]">@Html.DisplayNameFor(model => model.Price)</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Balcony)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    <!--Odnośniki do widoków edytowania, szczegółów oraz usuwania pokoju-->
+                    <a asp-action="Edit" asp-route-id="@item.Number">Edytuj</a> |
+                    <a asp-action="Details" asp-route-id="@item.Number">Szczegóły</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Number">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

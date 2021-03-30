@@ -1,0 +1,83 @@
+﻿<!-- Widok służący do dodawania rezerwacji-->
+
+@model MarcinWojczalZadDomLab6.Models.Entities.Reservation
+@using MarcinWojczalZadDomLab6.Models.Entities
+@using Newtonsoft.Json;
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!--Główny nagłówek-->
+<h1>Dodaj rezerwację</h1>
+<hr />
+
+<!--Kontener z danymi do wypełnienia-->
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input asp-for="StartDate" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label"></label>
+                <input asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoomNumber" class="control-label"></label>
+                <select id="room-number" asp-for="RoomNumber" class="form-control" asp-items="ViewBag.RoomNumber"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input id="price-input" asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">E-mail klienta</label>
+                <select asp-for="CustomerId" class="form-control" asp-items="ViewBag.CustomerId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <select asp-for="Status" class="form-control" asp-items="@Html.GetEnumSelectList<Reservation.EStatus>()"> </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Dodaj" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Wróć do listy rezerwacji</a>
+</div>
+
+<!-- Skrypt pozwalajacy na wpisanie ceny po zmianie pokoju w zależności od jego ceny-->
+<script type="text/javascript">
+
+    let roomNumberField = document.getElementById("room-number");
+    roomNumberField.addEventListener("change", ChangePrice);
+    let numbers = JSON.parse('@Html.Raw(Json.Serialize(ViewBag.Numbers))');
+    let prices = JSON.parse('@Html.Raw(Json.Serialize(ViewBag.Prices))');
+
+    // Funkcja wpisująca cenę w zależności od numery pokoju
+    function ChangePrice() {
+        let price = document.getElementById("price-input");
+        let i = 0;
+        for (let value of numbers)
+        {
+            if (value == roomNumberField.value)
+            {
+                price.value = prices[i];
+                break;
+            }
+            i++;
+        }
+    }
+</script>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
