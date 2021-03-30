@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Tytuł strony  -->
+    <title>Zmiana samochodu</title>
+    <!-- Style -->
+    <link href="../styles/styleMain.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/styleChangeCar.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <!-- Nagłówek -->
+    <header>
+        Wybierz samochód
+    </header>
+    
+    <!-- Sekcja z wyborem samochodów -->
+    <section>
+         <!-- Kontener z obrazkami samochodów do wyboru -->
+        <div class ="container">
+                <p><img class="car-image" id="car0" src="../Images/cars.png" onclick="ChangeCar('0');" /></p>
+                <p><img class="car-image" id="car1" src="../Images/cars.png" onclick="ChangeCar('1');" /></p>
+                <p><img class="car-image" id="car2" src="../Images/cars.png" onclick="ChangeCar('2');" /></p>
+                <p><img class="car-image" id="car3" src="../Images/cars.png" onclick="ChangeCar('3');" /></p>
+            
+                <p><img class="car-image" id="car4" src="../Images/cars.png" onclick="ChangeCar('4');" /></p>
+                <p><img class="car-image" id="car5" src="../Images/cars.png" onclick="ChangeCar('5');" /></p>
+                <p><img class="car-image" id="car6" src="../Images/cars.png" onclick="ChangeCar('6');" /></p>
+                <p><img class="car-image" id="car7" src="../Images/cars.png" onclick="ChangeCar('7');" /></p>
+            
+                <p><img class="car-image" id="car8" src="../Images/cars.png" onclick="ChangeCar('8');" /></p>
+                <p><img class="car-image" id="car9" src="../Images/cars.png" onclick="ChangeCar('9');" /></p>
+                <p><img class="car-image" id="car10" src="../Images/cars.png" onclick="ChangeCar('10');" /></p>
+                <p><img class="car-image" id="car11" src="../Images/cars.png" onclick="ChangeCar('11');" /></p>
+            
+         <!-- Kontener z odnośnikiem do głównej strony -->
+        </div>
+           <div class="main-text">
+            <p>
+                <a class="button" href="../index.html">Menu</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Skrypty -->
+    <script src="../scripts/carChooser.js"></script>
+    <script>ShowCars();</script>
+</body>
+</html>

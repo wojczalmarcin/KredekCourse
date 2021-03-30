@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<!-- Dane o stronie -->
+<head>
+    <meta charset="utf-8" />
+    <!-- Tytuł -->
+    <title>Gra jakaś tam</title>
+    <!-- Style -->
+    <link href="styles/styleMain.css" rel="stylesheet" type="text/css" />
+
+</head>
+    
+<!-- Wygląd strony -->
+<body>
+    <header>Gra polegająca na wymijaniu samochodów</header>
+
+    <!-- Sekcja głowna strony-->
+    <section>
+        <div>
+            <p>
+                <img id="example-image" src="Images/example.png" />
+            </p>
+        </div>
+
+        <!-- Kontener z głownym tekstem-->
+        <div class="main-text">
+            <p>
+                Twój samochód:
+            </p>
+            
+            <!-- Obrazek samochodu gracza z odnośnikiem do podstrony-->
+            <p>
+                <a href="pages/changeCar.html">
+                <img id="car-image" src="Images/cars.png" />
+                </a>
+            </p>
+        </div>
+
+   
+        <!-- kontener z rozpoczęciem gry-->
+        <div class = "button-container">
+            <p>
+                <a class="button" href="pages/changeCar.html">Zmien samochód</a>
+            </p>
+            <p>
+                <a class="button" href="pages/game.html">Rozpocznij gre!</a>
+            </p>
+        </div>
+        <p><br></p>
+        
+    </section>
+    
+    <!-- Podłączenie skryptu do strony -->
+    <script src="scripts/carChooser.js"></script>
+    <script>SetCar("car-image")</script>
+</body>
+</html>

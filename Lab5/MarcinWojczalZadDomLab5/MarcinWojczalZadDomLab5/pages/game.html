@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<!-- Dane o stronie -->
+<head>
+    <meta charset="utf-8" />
+    <title>Gra</title>
+    <!-- Style -->
+    <link href="../styles/styleMain.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/styleGame.css" rel="stylesheet" type="text/css" />
+</head>
+    
+<!-- Wygląd strony -->
+<body>
+ <!-- Sekcja z grą-->
+    <section>
+        <!-- Kontener z ulicą -->
+        <div id="street">
+            
+             <!-- Kontener z samochodami -->
+            <div>
+                <img class = "car" id="player-car" src="../Images/cars.png" />
+                <img class = "car" id="random-car0" src="../Images/cars.png" />
+                <img class = "car" id="random-car1" src="../Images/cars.png" />
+                <img class = "car" id="random-car2" src="../Images/cars.png" />
+                <img class = "car" id="random-car3" src="../Images/cars.png" />
+                <img class = "car" id="random-car4" src="../Images/cars.png" />  
+            </div>
+            
+             <!-- Kontenery z czarnymi prostokątami przykrywającymi końce ulicy -->
+            <div id="black-rectangle-top"></div>
+            <div id="black-rectangle-bottom"></div>
+            
+            <!-- Wynik -->
+            <Header id = 'score'>
+                Twój wynik:
+            </Header>
+            <div id = 'speed'>
+                    Predkosc: 0
+            </div>
+            <div id = 'best-score'>
+                    Twój najlepszy wynik: 0
+            </div>
+            
+            <!-- Informacje o sterowaniu i powrót do menu -->
+            <div id='informations'>
+                <p>STEROWANIE:</p>
+                <p>W A S D
+                <br>lub
+                <br>Srzałki</p>
+                <p>Jeśli nie widzisz całej drogi
+                <br>zmniejsz widok strony w 
+                <br>swojej przeglądarce</p>
+                <p><a class="button" href="../index.html">Menu</a></p>
+            </div>
+        </div>
+        
+    </section>
+    
+    <!-- Skrypty -->
+    <script src="../scripts/gameScript.js"></script>
+    <script src="../scripts/carChooser.js"></script>
+    <script>StartGame()</script>
+    <script>SetCar("player-car")</script>
+    <script>SetRandomCars()</script>
+    
+</body>
+</html>
